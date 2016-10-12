@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/shakedownflight/AroundYou#readme",
   "dependencies": {
+    "babel-preset-react": "^6.16.0",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "react": "^15.3.2",
