@@ -1,3 +1,30 @@
+# 실행방법
+
+* npm install
+* npm run build - build 폴더에 babel을 이용해 es5 문법으로 변환, 서버 리스닝
+* localhost:7777 접속
+* 지도 아래에 upload 버튼 클릭시 form으로 이동
+
+
+# 요청사항
+
+1. Map.js에서 가장 하단의 pin을 움직일때 얻는 좌표 값을 UploadView의 props로 전송
+
+2. UploadView에서 ajax post로 routes.js에 state를 전송 (form에 입력값은 전송되지만, state는 전송되지 않음)
+
+
+componenets/Map.js
+componenets/UploadView.js
+server/routes.js
+파일을 중점적으로 보시면 조금 편할 것 같습니다.
+
+
+
+_______________________________________________________________________________________________________________
+
+
+
+
 # Around You Project
 
 shakedownflight의 repository에 오신 것을 환영합니다.
