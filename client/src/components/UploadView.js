@@ -19,6 +19,19 @@ class UploadView extends React.Component{
 		  tag: this.state.tag,
 		  image:""
     };
+	}
+
+  componentwillreceiveprops(){ // test 용 console.log // props가 변화될 때마다 실행 
+    console.log('uploadView props', this.props) // Map.js에서 정상적으로 newLng와 newLat가 넘어옴
+    console.log('state', this.state)
+  }
+
+  // componentWillMount(){
+  //   console.log('uploadView props', this.props)
+  //   console.log('state', this.state)
+  // }
+
+  loadMessage(sth) {
     $.ajax({
       type:'POST',
       url:'/upload',
