@@ -32,7 +32,7 @@ class Map extends React.Component {
   render() {
     var newMarker = undefined;// upload click시 map에 유동적인 marker 생성.
     if(this.props.newmarker){
-      var newMarker = (<Marker lat={37.581770} lng={126.985966} draggable={true} onDragEnd={this.onDragEnd} />)
+      newMarker = (<Marker lat={37.581770} lng={126.985966} draggable={true} onDragEnd={this.onDragEnd} />)
     } 
     return (
       <Gmaps
