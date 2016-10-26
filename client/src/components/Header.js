@@ -4,7 +4,7 @@ class Header extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      headerBigTitle : "Around You",
+      headerBigTitle : "Around s",
     };
   };
 
