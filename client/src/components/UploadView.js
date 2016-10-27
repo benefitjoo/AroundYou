@@ -7,13 +7,14 @@ import $ from 'jquery';
 class UploadView extends React.Component{
 	constructor(props) {
 		super(props)
-		this.state = {userid: 'ley', lat:0, lng:0, tag:"", filename:"", filetype:"", };
+		this.state = {userid: 'ley', lat:0, lng:0, tag:"", filename:"", filetype:"", data_uri:""};
 		this.loadMessage = this.loadMessage.bind(this);
     this.sendDataToServer = this.sendDataToServer.bind(this);
     this.setImage = this.setImage.bind(this);
 	};
   
   sendDataToServer(){
+    console.log('data_uri', this.state.data_uri)
     const data = {
       userid: this.state.userid,
       lat: this.state.lat,
@@ -28,7 +29,7 @@ class UploadView extends React.Component{
       url:'/upload',
       dataType:'jsonp',
       data: data,
-      success: ((data)=> {
+      success: ((datas)=> {
         console.log('ajax post success');
       }).bind(this),
       error: ((err)=>{
@@ -45,7 +46,7 @@ class UploadView extends React.Component{
     const reader = new FileReader();
     const file = e.target.files[0];
     reader.onload = (upload) => {
-      console.log(typeof upload.target.result);
+      console.log(upload.target.result);
       this.setState({ filename: file.name, filetype:file.type, data_uri: upload.target.result });  
     }
     reader.readAsDataURL(file);

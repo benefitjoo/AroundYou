@@ -1,13 +1,13 @@
 import mongoose from 'mongoose';
 const pinSchema = mongoose.Schema({//뼈대생성
 	userid: String,
+	data_uri: String,
 	lat: Number,
 	lng: Number,
-	data: { type: Date, default: Date.now  },
+	// data: { type: Date, default: Date.now  },
 	tag: String, // how does input multiple tag?
 	filename: String,
 	filetype: String,
-	data_uri: Buffer
 });
 const Pin = mongoose.model('PinModel',pinSchema)//PinModel:(mongo db collection)생성
 
