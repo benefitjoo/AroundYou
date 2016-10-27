@@ -9,7 +9,7 @@ const pinSchema = mongoose.Schema({//뼈대생성
 	filename: String,
 	filetype: String,
 });
-const Pin = mongoose.model('PinModel',pinSchema)//PinModel:(mongo db collection)생성
+const Pins = mongoose.model('PinModel',pinSchema)//PinModel:(mongo db collection)생성
 
 // const demoPin = new Pin({
 // 	userid: "demo",
