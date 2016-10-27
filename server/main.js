@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import routes from './routes.js';
 import path from 'path';
 import bodyParser from 'body-parser';
-import Pin from '../build/gmapsModel.js';//call mongoose Model
+import Pin from '../server/gmapsModel.js';//call mongoose Model
 import http from 'http';
 
 const app = express();
@@ -11,6 +11,7 @@ const app = express();
 app.set("port", 7777);
 
 // Mongoose connecting
+mongoose.Promise = global.Promise;
 const db = mongoose.connection;//Connect to mongoDB server
 db.on('err', console.error);
 db.once('open', ()=>{

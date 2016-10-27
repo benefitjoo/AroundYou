@@ -4,18 +4,23 @@ import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router'
 class Upload extends React.Component{
 	constructor(props) {
 		super(props)
-		this.state = {value: 'Hello!'};
-	}
+		this.state = {
+      memo: "upload"
+    };
+    this.uploadClick=this.uploadClick.bind(this);
+	};
+  uploadClick(e){
+    this.props.onClick(e);
+  }
+//1. Upload 부분 클릭하면 photo.js에서 UploadView.js 로 내용물 변경. //ok 
+//1-2. 포인터 추가.  //ok
 
-  render(){
+  render(){ 
     return (
-      <div>
-        <h1 style={{color: "green"}}>
-        	<Link to="upload">Upload</Link>
-        </h1>
-        {this.props.children}
-      </div>
-    )
+      <Link to = "upload" onClick={this.uploadClick}>
+      <div>{this.state.memo}</div>
+      </Link >
+    );
   };
 };
 

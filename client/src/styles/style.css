@@ -49,15 +49,15 @@ html,body {
 }
 
 #upload {
-  height: 250px;
+  height: 500px;
   width: 20%;
   float: left;
   background-color: #ffffff;
 }
 
 #photo {
-  height: 250px;
-  width: 20%;
+  height: 500px;
+  width: 80%;
   float: left;
   background-color: #ffffff;
 }

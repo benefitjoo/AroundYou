@@ -5,13 +5,11 @@ module.exports = {
         path: __dirname + '/client/public/',
         filename: 'bundle.js'
     },
-
     devServer: {
         inline: true,
         port: 8080,
         contentBase: __dirname + '/client/public/'
     },
-
     module: {
             loaders: [
                 {

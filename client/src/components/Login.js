@@ -24,7 +24,7 @@ class Login extends React.Component{
 
     $.ajax({  //ajax 이용해 서버에 token 보내거나, 구글에 보낸다.
       type:'GET',
-      url:'https://www.googleapis.com/oauth2/v3/tokeninfo?id_token='+ id_token,//'/localhost/localDB', //?????
+      url:'https://www.googleapis.com/oauth2/v3/tokeninfo?id_token='+ id_token,
       dataType:'jsonp',//??
       success:((data)=> {
         console.log('get decoded token from google? ',data);
