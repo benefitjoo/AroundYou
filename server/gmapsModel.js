@@ -7,7 +7,7 @@ const pinSchema = mongoose.Schema({//뼈대생성
 	tag: String, // how does input multiple tag?
 	image: Buffer
 });
-const Pin = mongoose.model('PinModel',pinSchema)//PinModel:(mongo db collection)생성
+const Pins = mongoose.model('PinModel',pinSchema)//PinModel:(mongo db collection)생성
 
 // const demoPin = new Pin({
 // 	userid: "demo",

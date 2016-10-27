@@ -32062,10 +32062,18 @@
 	    }
 	  }, {
 	    key: 'onDragEnd',
+
+
+	    // 아래 render <UploadView>를 통해 좌표를 전송하려고 함. 첫 화면에서 맵의 가장 아래쪽 pin을 움직이면 좌표값을 newLng, newLat에 저장 (brower console에서도 확인 가능)
+	    // UploadView.js의 componentwillreceiveprops를 보면, data를 받긴 받지만 변경되기 전 좌표값을 받음.
+
+	    // 예를들어 처음 움직이면(A), 움직인 뒤 좌표값이 아니라 처음 정해진 newLng:20, newLat:20을 받고
+	    // 다음번에 움직일때 (A)값을 전송. setState하기 전의 값을 넘기는 것 같은데 원인과 해결방법을 못찾고 있음.
+
 	    value: function onDragEnd(e) {
 	      //  위경도 콘솔창에 찍어줌.
-	      console.log('onDragEndx', e.latLng.lng()); // 위도
-	      console.log('onDragEndy', e.latLng.lat()); // 경도
+	      console.log('onDragEndx', e.latLng.lng()); // 움직인 pin의 위도 출력
+	      console.log('onDragEndy', e.latLng.lat()); // 움직인 pin의 경도 출력
 	      this.setState({ newLng: e.latLng.lng(), newLat: e.latLng.lat() });
 	    }
 	  }, {
@@ -32866,20 +32874,26 @@
 	  }
 
 	  _createClass(UploadView, [{
-	    key: 'componentWillMount',
-	    value: function componentWillMount() {
-	      console.log('uploadView props', this.props);
+	    key: 'componentwillreceiveprops',
+	    value: function componentwillreceiveprops() {
+	      // test 용 console.log // props가 변화될 때마다 실행 
+	      console.log('uploadView props', this.props); // Map.js에서 정상적으로 newLng와 newLat가 넘어옴
 	      console.log('state', this.state);
 	    }
 	  }, {
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
+	      // test용 console.log
 	      this.setState({ hereLng: this.props.newLng, hereLat: this.props.newLat });
-	      console.log(this.state.newLng, this.state.newLat);
+	      console.log(this.state.newLng, this.state.newLat); // Map.js에서 받은 newLng와 newLat가 출력되지 않음. componentwillreceiveprops와 왜 다르게 출력되는지 모르겠음
 	    }
+
+	    // 아래의 form 값을 전송하기 위한 test function. // Map.js에서 받은 데이터로 setState가 되면 form에 입력한 부분과 함께 routes로 data를 전송하려고 함.
+
 	  }, {
 	    key: 'loadMessage',
 	    value: function loadMessage(sth) {
+	      // 현재 form에 입력한 data는 routes에서 req.body.name으로 받을 수 있으나, this.state 전송에 실패.
 	      var herex = this.props.newLng;
 	      _jquery2.default.ajax({
 	        url: '/upload',
